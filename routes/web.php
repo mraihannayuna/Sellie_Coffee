@@ -5,9 +5,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
-//? ------------------------------------------------ HOME ----------------------------------------------------
+//? ------------------------------------------------ GUEST ----------------------------------------------------Ooo
+
+Route::get('/',[HomeController::class,'home']);
+Route::get('/Menu',[HomeController::class,'menu'])->name('Menu');
+Route::get('/Produk',[HomeController::class,'produk'])->name('Produk');
+Route::get('/Location',[HomeController::class,'location'])->name('Location');
+Route::get('/Contact',[HomeController::class,'contact'])->name('Contact');
+
+//! ------------------------------------------------ END GUEST ------------------------------------------------
+
+
+
+//? ------------------------------------------------ HOME ----------------------------------------------------Ooo
 
 Route::get('/dashboard', function () {return view('home.index');})->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -21,17 +35,9 @@ require __DIR__.'/auth.php';
 
 
 
-//? ------------------------------------------------ GUEST ----------------------------------------------------
+//? ------------------------------------------------ ADMIN ----------------------------------------------------Ooo
 
-Route::get('/',[HomeController::class,'home']);
-
-//! ------------------------------------------------ END GUEST ------------------------------------------------
-
-
-
-//? ------------------------------------------------ ADMIN ----------------------------------------------------
-
-Route::get('admin/dashboard',[HomeController::class,'index'])->middleware(['auth','ADMIN']);
+Route::get('admin/dashboard',[AdminController::class,'index'])->middleware(['auth','ADMIN']);
 Route::get('view_category',[AdminController::class,'view_category'])->middleware(['auth','ADMIN']);
 Route::post('add_category',[AdminController::class,'add_category'])->middleware(['auth','ADMIN']);
 Route::get('delete_category/{id}',[AdminController::class,'delete_category'])->middleware(['auth','ADMIN']);

@@ -7,15 +7,33 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
-    public function index() {
+    public function home()
+    {
 
-        return view('admin.index');
+        return view('home.index');
+    }
+
+    public function menu() {
+
+        return view('home.menu');
 
     }
 
-    public function home() {
+    public function produk() {
 
-        return view('home.index');
+        return view('home.produk');
+
+    }
+
+    public function location() {
+
+        return view('home.location');
+
+    }
+
+    public function contact() {
+
+        return view('home.contact');
 
     }
 
