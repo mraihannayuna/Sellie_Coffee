@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
+//? ------------------------------------------------ HOME ----------------------------------------------------
+
 Route::get('/dashboard', function () {return view('home.index');})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -15,7 +17,19 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+//! ------------------------------------------------ END HOME -------------------------------------------------
+
+
+
+//? ------------------------------------------------ GUEST ----------------------------------------------------
+
 Route::get('/',[HomeController::class,'home']);
+
+//! ------------------------------------------------ END GUEST ------------------------------------------------
+
+
+
+//? ------------------------------------------------ ADMIN ----------------------------------------------------
 
 Route::get('admin/dashboard',[HomeController::class,'index'])->middleware(['auth','ADMIN']);
 Route::get('view_category',[AdminController::class,'view_category'])->middleware(['auth','ADMIN']);
@@ -31,3 +45,6 @@ Route::get('delete_product/{id}',[AdminController::class,'delete_product'])->mid
 Route::get('edit_product/{id}',[AdminController::class,'edit_product'])->middleware(['auth','ADMIN']);
 Route::post('update_product/{id}',[AdminController::class,'update_product'])->middleware(['auth','ADMIN']);
 Route::get('product_search',[AdminController::class,'product_search'])->middleware(['auth','ADMIN']);
+
+//! ------------------------------------------------ END ADMIN ------------------------------------------------
+

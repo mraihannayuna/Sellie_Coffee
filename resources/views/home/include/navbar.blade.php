@@ -21,7 +21,7 @@
                 @else
                 <form action="{{url('/logout')}}" method="POST">
                     @csrf
-                    <input class="btn btn-danger" type="submit" value="logout">
+                    <input class="btn btn-white" type="submit" value="logout">
                 </form>
             @endguest
     </header>
