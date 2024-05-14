@@ -19,9 +19,16 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('price');
             $table->string('category');
+            $table->unsignedBigInteger('category_id');
             $table->integer('quantity')->nullable();
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories');
+
         });
+
+
+
     }
 
     /**

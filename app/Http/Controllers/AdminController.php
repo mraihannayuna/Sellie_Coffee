@@ -81,6 +81,7 @@ class AdminController extends Controller
         $data->price = $request->price;
         $data->quantity = $request->quantity;
         $data->category = $request->category;
+        // $data->category_id = $request?;
 
         $image = $request->image;
 
