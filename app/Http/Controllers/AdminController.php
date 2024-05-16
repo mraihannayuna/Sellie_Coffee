@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Coffee;
 
 class AdminController extends Controller
 {
@@ -72,39 +73,77 @@ class AdminController extends Controller
         return view('admin.add_product', compact('category'));
     }
 
-    public function upload_product(Request $request)
+    public function add_coffee()
     {
+        $category = Category::all();
 
+        return view('admin.add_coffee', compact('category'));
+    }
+
+public function upload_product(Request $request)
+{
+    try {
         $data = new Product;
+
         $data->title = $request->title;
         $data->description = $request->description;
         $data->price = $request->price;
-        $data->quantity = $request->quantity;
-        $data->category = $request->category;
-        // $data->category_id = $request?;
+        $data->category_id = $request->category_id;
 
         $image = $request->image;
 
         if ($image) {
-
             $imagename = time() . '.' . $image->getClientOriginalExtension();
             $request->image->move('products', $imagename);
-
             $data->image = $imagename;
         }
 
         $data->save();
 
-
         toastr()->closeButton()->timeOut(3500)->addSuccess('Product Added Successfully');
-
-        return redirect()->back();
+    } catch (\Exception $e) {
+        toastr()->closeButton()->timeOut(3500)->addError('Failed to add product: ' . $e->getMessage());
     }
+
+    return redirect()->back();
+}
+
+public function upload_coffee(Request $request)
+{
+    try {
+        $data = new Coffee;
+
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->price = $request->price;
+        $data->quantity = $request->quantity;
+        $data->category_id = $request->category_id;
+
+        $image = $request->image;
+
+        if ($image) {
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $request->image->move('products', $imagename);
+            $data->image = $imagename;
+        }
+
+        $data->save();
+
+        toastr()->closeButton()->timeOut(3500)->addSuccess('Coffee Added Successfully');
+    } catch (\Exception $e) {
+        toastr()->closeButton()->timeOut(3500)->addError('Failed to add coffee: ' . $e->getMessage());
+    }
+
+    return redirect()->back();
+}
+
 
     public function view_product()
     {
-        $products = Product::paginate(3);
-        return view('admin.view_product', compact('products'));
+        $products = Product::paginate(5);
+        $coffee = Coffee::all();
+
+        return view('admin.view_product', compact('products','coffee'));
     }
 
     public function delete_product($id)
@@ -156,13 +195,14 @@ class AdminController extends Controller
         return redirect('/view_product');
     }
 
-    public function product_search(Request $request)
-    {
-        $search = $request->search;
-        $products = Product::where('title', 'LIKE', '%' . $search . '%')->orWhere('category', 'LIKE', '%' . $search . '%')->paginate(3);
+    //TODO Coming Soon for Search Button
+    // public function product_search(Request $request)
+    // {
+    //     $search = $request->search;
+    //     $products = Product::where('title', 'LIKE', '%' . $search . '%')->orWhere('category', 'LIKE', '%' . $search . '%')->paginate(3);
 
-        return view('admin.view_product', compact('products'));
-    }
+    //     return view('admin.view_product', compact('products'));
+    // }
 
     //! ------------------------------------------ END PRODUCT ----------------------------------------------------
 

@@ -54,7 +54,7 @@
 
             <div class="div_design">
 
-                <form action="{{url('upload_product')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('upload_coffee')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="input_design">
@@ -78,6 +78,11 @@
                     </div>
 
                     <div class="input_design">
+                        <label>Product Quantity</label>
+                        <input type="number" name="quantity" required>
+                    </div>
+
+                    <div class="input_design">
                         <label>Product Category</label>
                         <select name="category_id" required>
                           <option value="Not Selected">Select The Category</option>
@@ -88,7 +93,7 @@
                       </div>
 
                     <div class="input_design">
-                        <input class="btn btn-success btn-lg" type="submit" value="add product">
+                        <input class="btn btn-success btn-lg" type="submit" value="add coffee">
                     </div>
 
                 </form>

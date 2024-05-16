@@ -58,10 +58,12 @@
         <div class="page-header">
           <div class="container-fluid">
 
-            <form action="{{url('product_search')}}" method="GET">
+            {{-- <form action="{{url('product_search')}}" method="GET">
                 <input type="search" name="search">
                 <input type="submit" class="btn btn-secondary" value="search">
-            </form>
+            </form> --}}
+
+            <h1>------------------------- Products -------------------------</h1>
 
             <div class="div_design">
 
@@ -71,7 +73,6 @@
                         <th>Description</th>
                         <th>Category</th>
                         <th>Price</th>
-                        <th>Quantity</th>
                         <th>Image</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -82,7 +83,50 @@
                     <tr>
                         <td>{{$data->title}}</td>
                         <td>{!!Str::limit($data->description,50)!!}</td>
-                        <td>{{$data->category}}</td>
+                        <td>{{$data->category->category_name}}</td>
+                        <td>{{$data->price}}</td>
+                        <td>
+                            <img height="120" width="120" src="products/{{$data->image}}" alt="gaada foto :(">
+                        </td>
+
+                        <td>
+                            <a class="btn btn-success" href="{{url('edit_product',$data->id)}}">Update</a>
+                        </td>
+
+                        <td>
+                            <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_product',$data->id)}}">Delete</a>
+                        </td>
+
+                    </tr>
+
+                    @endforeach
+
+                </table>
+                {{$products->onEachSide(1)->links()}}
+            </div>
+
+            <h1>-------------------------- Coffee --------------------------</h1>
+
+            <div class="div_design">
+
+                <table class="table_design">
+                    <tr>
+                        <th>Coffee Title</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Image</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+
+                    @foreach ($coffee as $data)
+
+                    <tr>
+                        <td>{{$data->title}}</td>
+                        <td>{!!Str::limit($data->description,50)!!}</td>
+                        <td>{{$data->category->category_name}}</td>
                         <td>{{$data->price}}</td>
                         <td>{{$data->quantity}}</td>
                         <td>
@@ -102,7 +146,7 @@
                     @endforeach
 
                 </table>
-                {{$products->onEachSide(1)->links()}}
+                {{$products->links()}}
             </div>
 
           </div>

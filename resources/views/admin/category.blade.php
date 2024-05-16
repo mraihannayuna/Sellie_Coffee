@@ -60,7 +60,7 @@
                 @csrf
 
                 <div>
-                    <input type="text" name="category">
+                    <input type="text" name="category" required>
                     <input class="btn btn-primary btn-lg" type="submit" value="add category">
                 </div>
 

@@ -46,7 +46,9 @@ Route::post('update_category/{id}',[AdminController::class,'update_category'])->
 
 Route::get('view_product',[AdminController::class,'view_product'])->middleware(['auth','ADMIN']);
 Route::get('add_product',[AdminController::class,'add_product'])->middleware(['auth','ADMIN']);
+Route::get('add_coffee',[AdminController::class,'add_coffee'])->middleware(['auth','ADMIN']);
 Route::post('upload_product',[AdminController::class,'upload_product'])->middleware(['auth','ADMIN']);
+Route::post('upload_coffee',[AdminController::class,'upload_coffee'])->middleware(['auth','ADMIN']);
 Route::get('delete_product/{id}',[AdminController::class,'delete_product'])->middleware(['auth','ADMIN']);
 Route::get('edit_product/{id}',[AdminController::class,'edit_product'])->middleware(['auth','ADMIN']);
 Route::post('update_product/{id}',[AdminController::class,'update_product'])->middleware(['auth','ADMIN']);

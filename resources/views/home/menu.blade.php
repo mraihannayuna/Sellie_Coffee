@@ -27,35 +27,35 @@
     <div class="py-5">
         <div class="container">
 
-            @foreach ($category as $t)
+                @foreach ($groupedProducts as $categoryName => $products)
                 <section class="text-center mt-2 mb-4">
-                    <h1 class="text-dark fw-semibold" style=" font-family: 'DM sans', sans-serif !important;">
-                        {{ $t->category_name }}</h1>
+                    <h1 class="text-dark fw-semibold" style="font-family: 'DM sans', sans-serif !important;">
+                        {{ $categoryName }}</h1>
                 </section>
-            @endforeach
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-                @foreach ($coffee as $c)
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="img-fluid card-img-top" src="/assets/image/Japanese-Iced-Coffee-II.jpg"
-                                alt="failed to load">
-                            <div class="card-body">
-                                <h2>Japanese</h2>
-                                <p>Smooth, balanced, delicate.</p>
-                                <h3>Rp20.0000</h3>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    @foreach ($products as $product)
+                        <div class="col mb-4">
+                            <div class="card shadow-sm" style="height: 100%;">
+                                <img class="card-img-top" src="products/{{ $product->image }}" alt="failed to load" style="object-fit: cover; height: 200px;">
+                                <div class="card-body">
+                                    <h2 class="card-title">{{ $product->title }}</h2>
+                                    <p class="card-text">{{ $product->description }}</p>
+                                    <h3 class="card-text">Rp{{ $product->price }}</h3>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        {{--TODO Tambahkan tombol atau aksi lainnya di sini jika diperlukan --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
+            @endforeach
 
-            </div>
+
+
+
         </div>
+    </div>
     </div>
     </div>
 
