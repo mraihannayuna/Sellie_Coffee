@@ -31,7 +31,19 @@
 
     .card-img-top {
         width: 100%;
-        height: 20vw;
+        height: 5vw;
         object-fit: cover;
     }
+
+    .cardmg{
+        width: 20%;
+        height: 5vw;
+        object-fit: cover;
+    }
+
+
+    .custom-container {
+            max-width: 700px;
+        }
+
 </style>

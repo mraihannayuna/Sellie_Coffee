@@ -12,6 +12,9 @@ Route::get('/Menu',[HomeController::class,'menu'])->name('Menu');
 Route::get('/Produk',[HomeController::class,'produk'])->name('Produk');
 Route::get('/Location',[HomeController::class,'location'])->name('Location');
 Route::get('/Contact',[HomeController::class,'contact'])->name('Contact');
+Route::get('add_cart/{id}',[HomeController::class,'add_cart']);
+Route::get('mycart',[HomeController::class,'mycart'])->middleware(['auth', 'verified']);
+Route::get('removeFromCart/{id}', [HomeController::class, 'removeFromCart'])->middleware(['auth', 'verified'])->name('removeFromCart');
 
 //! ------------------------------------------------ END GUEST ------------------------------------------------
 
@@ -52,7 +55,7 @@ Route::post('upload_coffee',[AdminController::class,'upload_coffee'])->middlewar
 Route::get('delete_product/{id}',[AdminController::class,'delete_product'])->middleware(['auth','ADMIN']);
 Route::get('edit_product/{id}',[AdminController::class,'edit_product'])->middleware(['auth','ADMIN']);
 Route::post('update_product/{id}',[AdminController::class,'update_product'])->middleware(['auth','ADMIN']);
-Route::get('product_search',[AdminController::class,'product_search'])->middleware(['auth','ADMIN']);
+// Route::get('product_search',[AdminController::class,'product_search'])->middleware(['auth','ADMIN']);
 
 //! ------------------------------------------------ END ADMIN ------------------------------------------------
 

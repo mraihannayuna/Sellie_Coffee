@@ -140,7 +140,7 @@ public function upload_coffee(Request $request)
 
     public function view_product()
     {
-        $products = Product::paginate(5);
+        $products = Product::paginate(4);
         $coffee = Coffee::all();
 
         return view('admin.view_product', compact('products','coffee'));
