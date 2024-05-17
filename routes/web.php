@@ -37,11 +37,9 @@ require __DIR__.'/auth.php';
 
 //! ------------------------------------------------ END HOME -------------------------------------------------
 
-
-
 //? ------------------------------------------------ ADMIN ----------------------------------------------------Ooo
 
-Route::get('admin/dashboard',[AdminController::class,'index'])->middleware(['auth','ADMIN']);
+Route::get('admin/dashboard',[AdminController::class,'view_category'])->middleware(['auth','ADMIN']); // sementara
 Route::get('view_category',[AdminController::class,'view_category'])->middleware(['auth','ADMIN']);
 Route::post('add_category',[AdminController::class,'add_category'])->middleware(['auth','ADMIN']);
 Route::get('delete_category/{id}',[AdminController::class,'delete_category'])->middleware(['auth','ADMIN']);
@@ -56,7 +54,6 @@ Route::post('upload_coffee',[AdminController::class,'upload_coffee'])->middlewar
 Route::get('delete_product/{id}',[AdminController::class,'delete_product'])->middleware(['auth','ADMIN']);
 Route::get('edit_product/{id}',[AdminController::class,'edit_product'])->middleware(['auth','ADMIN']);
 Route::post('update_product/{id}',[AdminController::class,'update_product'])->middleware(['auth','ADMIN']);
-// Route::get('product_search',[AdminController::class,'product_search'])->middleware(['auth','ADMIN']);
 
 //! ------------------------------------------------ END ADMIN ------------------------------------------------
 

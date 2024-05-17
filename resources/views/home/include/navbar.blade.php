@@ -21,7 +21,7 @@
                 <a href="{{ url('register') }}" class="btn btn-outline-light">Register</a>
             @else
                 @if (auth()->user()->roles === 'ADMIN')
-                    <a href="{{ url('admin/dashboard') }}" class="btn btn-outline-light">admin</a>
+                    <a href="{{ url('view_product') }}" class="btn btn-outline-light">admin</a>
                 @endif
                 <form class="btn" action="{{ url('logout') }}" method="POST">
                     @csrf

@@ -117,6 +117,7 @@ public function removeFromCart($cartId) {
 
     public function add_cart($id) {
 
+        if(Auth::user() == true) {
         $product_id = $id;
 
         $user_id = Auth::user()->id;
@@ -129,6 +130,10 @@ public function removeFromCart($cartId) {
         $data->save();
 
         toastr()->closeButton()->timeOut(3000)->addSuccess('Product Added To Cart Successfully');
+
+        }
+
+        toastr()->closeButton()->timeOut(5000)->addWarning('Mohon Login Terlebih Dahulu!');
 
         return redirect()->back();
 

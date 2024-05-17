@@ -14,19 +14,16 @@
         <ul class="list-unstyled">
 
 
-            <li class="active"><a href="{{ url('admin/dashboard') }}"> <i class="icon-home"></i>Home </a></li>
-
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i
-                        class="icon-windows"></i>Products</a>
+            <li><a href="{{ url('/') }}"><i class="icon-home"></i>User View </a></li>
+            <li><a href="{{ url('view_product') }}"> <i class="icon-grid"></i>View Product</a></li>
+            <li><a href="{{ url('view_category') }}"> <i class="icon-grid"></i>Category </a></li>
+            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                    <i class="icon-windows"></i>Products</a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{ url('view_product') }}">View Product</a></li>
                     <li><a href="{{ url('add_product') }}">Add Product</a></li>
                     <li><a href="{{ url('add_coffee') }}">Add Coffee</a></li>
                 </ul>
             </li>
-
-            <li><a href="{{ url('view_category') }}"> <i class="icon-grid"></i>Category </a></li>
-            <li><a href="{{ url('/') }}"> <i class="fa-regular fa-user"></i>User View </a></li>
 
     </nav>
     <!-- Sidebar Navigation end-->

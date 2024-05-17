@@ -12,11 +12,6 @@ class AdminController extends Controller
 
     //* ------------------------------------------ CATEGORY ----------------------------------------------------
 
-    public function index()
-    {
-        return view('admin.index');
-    }
-
     public function view_category()
     {
         $data = Category::all();
@@ -194,15 +189,6 @@ public function upload_coffee(Request $request)
 
         return redirect('/view_product');
     }
-
-    //TODO Coming Soon for Search Button
-    // public function product_search(Request $request)
-    // {
-    //     $search = $request->search;
-    //     $products = Product::where('title', 'LIKE', '%' . $search . '%')->orWhere('category', 'LIKE', '%' . $search . '%')->paginate(3);
-
-    //     return view('admin.view_product', compact('products'));
-    // }
 
     //! ------------------------------------------ END PRODUCT ----------------------------------------------------
 

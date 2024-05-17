@@ -39,7 +39,7 @@
                         [<span class="text-white fw-bold">{{$count}}</span>]
                     </a>
                     @if (auth()->user()->roles === 'ADMIN')
-                        <a href="{{ url('admin/dashboard') }}" class="btn btn-outline-light">admin</a>
+                        <a href="{{ url('view_product') }}" class="btn btn-outline-light">admin</a>
                     @endif
                     <form class="btn" action="{{ url('logout') }}" method="POST">
                         @csrf
