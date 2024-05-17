@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaymentController;
 
 //? ------------------------------------------------ GUEST ----------------------------------------------------Ooo
 
@@ -18,7 +19,7 @@ Route::get('removeFromCart/{id}', [HomeController::class, 'removeFromCart'])->mi
 
 //! ------------------------------------------------ END GUEST ------------------------------------------------
 
-
+Route::post('/initiate-payment', [PaymentController::class, 'initiatePayment'])->name('initiate-payment');
 
 //? ------------------------------------------------ HOME ----------------------------------------------------Ooo
 

@@ -7,11 +7,11 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="/" class="nav-link px-2 text-light">Home</a></li>
-            <li><a href="Menu" class="nav-link px-2 text-light">Menu</a></li>
-            <li><a href="Produk" class="nav-link px-2 text-light">Product</a></li>
-            <li><a href="Location" class="nav-link px-2 text-light">Location</a></li>
-            <li><a href="Contact" class="nav-link px-2 text-light">Contact</a></li>
+            <li><a href="/" class="nav-button nav-link px-2 text-light">Home</a></li>
+            <li><a href="Menu" class="nav-button nav-link px-2 text-light">Menu</a></li>
+            <li><a href="Produk" class="nav-button nav-link px-2 text-light">Product</a></li>
+            <li><a href="Location" class="nav-button nav-link px-2 text-light">Location</a></li>
+            <li><a href="Contact" class="nav-button nav-link px-2 text-light">Contact</a></li>
         </ul>
 
         <div class="col-md-3 text-end">

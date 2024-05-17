@@ -67,22 +67,34 @@
                 @foreach ($carts as $cart)
                     <tr>
                         <td class="cardmg">
-                            <img class="card-img-top" src="products/{{ $cart->product->image }}" alt="{{ $cart->product->title }}">
+                            <img class="card-img-top" src="products/{{ $cart->product->image }}"
+                                alt="{{ $cart->product->title }}">
                         </td>
                         <td>{{ $cart->product->title }}</td>
                         <td>Rp{{ $cart->product->price }}</td>
                         <td>{{ $cart->product->quantity }}</td>
                         <td>
-                            <a class="btn btn-danger remove-from-cart" href="{{url('removeFromCart',$cart->id)}}">-</a>
+                            <a class="btn btn-danger remove-from-cart"
+                                href="{{ url('removeFromCart', $cart->id) }}">-</a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         @php
-        $formattedTotal = number_format($total, 0, ',', '.');
+            $formattedTotal = number_format($total, 0, ',', '.');
         @endphp
         <h2 class="text-center mb-4">Total: Rp{{ $formattedTotal }}</h2>
+
+        <!-- Checkout Button -->
+        <div class="text-center">
+            <form action="{{ route('initiate-payment') }}" method="POST">
+                @csrf
+                <input type="hidden" name="total_amount" value="{{ $total }}">
+                <button type="submit" class="btn btn-success mb-4">Proceed to Checkout</button>
+            </form>
+        </div>
+
     </div>
 
     @include('home.include.footer')

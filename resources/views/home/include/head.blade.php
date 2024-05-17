@@ -35,7 +35,7 @@
         object-fit: cover;
     }
 
-    .cardmg{
+    .cardmg {
         width: 20%;
         height: 5vw;
         object-fit: cover;
@@ -43,7 +43,16 @@
 
 
     .custom-container {
-            max-width: 700px;
-        }
+        max-width: 700px;
+    }
+
+    .nav-button{
+        transition: 0.3s;
+        font-size: 25px;
+    }
+
+    .nav-button:hover{
+        color: ;
+    }
 
 </style>
