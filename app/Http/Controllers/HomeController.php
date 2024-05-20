@@ -22,12 +22,14 @@ class HomeController extends Controller
         return view('home.index');
     }
 
-    public function menu() {
+    public function menu()
+    {
         $coffee = Product::all();
         $category = Category::all();
 
         // Buat fungsi untuk mendapatkan nama kategori dari ID
-        function getCategoryName($categoryId, $categories) {
+        function getCategoryName($categoryId, $categories)
+        {
             foreach ($categories as $category) {
                 if ($category->id == $categoryId) {
                     return $category->category_name;
@@ -37,7 +39,8 @@ class HomeController extends Controller
         }
 
         // Buat fungsi untuk mengelompokkan produk berdasarkan kategori
-        function groupProductsByCategory($products, $categories) {
+        function groupProductsByCategory($products, $categories)
+        {
             $groupedProducts = [];
             foreach ($products as $product) {
                 $categoryId = $product->category_id;
@@ -55,88 +58,89 @@ class HomeController extends Controller
         return view('home.menu', compact('groupedProducts'));
     }
 
-    public function produk() {
+    public function produk()
+    {
         $coffee = Coffee::all();
         $count = null;
 
-        if(Auth::user()) {
+        if (Auth::user()) {
             $user_id = Auth::user()->id;
-            $count = Cart::where('user_id',$user_id)->count();
+            $count = Cart::where('user_id', $user_id)->count();
         }
 
-        return view('home.produk', compact('coffee','count'));
-
+        return view('home.produk', compact('coffee', 'count'));
     }
 
-    public function location() {
+    public function location()
+    {
 
         return view('home.location');
-
     }
 
-    public function contact() {
+    public function contact()
+    {
 
         return view('home.contact');
-
     }
 
-    public function mycart() {
+    public function mycart()
+    {
         $count = null;
         $carts = null;
         $total = 0;
 
-        if(Auth::user()) {
+        if (Auth::user()) {
             $user_id = Auth::user()->id;
-            $count = Cart::where('user_id',$user_id)->count();
-            $carts = Cart::where('user_id',$user_id)->with('product')->get();
+            $count = Cart::where('user_id', $user_id)->count();
+            $carts = Cart::where('user_id', $user_id)->with('product')->get();
             foreach ($carts as $cart) {
                 $price = $cart->product->price * 1000;
                 $total += $price;
             }
         }
 
-        return view('home.mycart',compact('carts','count','total'));
+        return view('home.mycart', compact('carts', 'count', 'total'));
     }
 
-public function addToCart($productId) {
-    $user_id = Auth::user()->id;
-
-    $cart = new Cart;
-    $cart->user_id = $user_id;
-    $cart->product_id = $productId;
-    $cart->save();
-
-    return redirect()->back()->with('success', 'Item added to cart successfully.');
-}
-
-public function removeFromCart($cartId) {
-    Cart::destroy($cartId);
-
-    return redirect()->back()->with('success', 'Item removed from cart successfully.');
-}
-
-    public function add_cart($id) {
-
-        if(Auth::user() == true) {
-        $product_id = $id;
-
+    public function addToCart($productId)
+    {
         $user_id = Auth::user()->id;
 
-        $data = new Cart;
+        $cart = new Cart;
+        $cart->user_id = $user_id;
+        $cart->product_id = $productId;
+        $cart->save();
 
-        $data->user_id = $user_id;
-        $data->product_id = $product_id;
-
-        $data->save();
-
-        toastr()->closeButton()->timeOut(3000)->addSuccess('Product Added To Cart Successfully');
-
-        }
-
-        toastr()->closeButton()->timeOut(5000)->addWarning('Mohon Login Terlebih Dahulu!');
-
-        return redirect()->back();
-
+        return redirect()->back()->with('success', 'Item added to cart successfully.');
     }
 
+    public function removeFromCart($cartId)
+    {
+        Cart::destroy($cartId);
+
+        return redirect()->back()->with('success', 'Item removed from cart successfully.');
+    }
+
+    public function add_cart($id)
+    {
+
+        if (Auth::user() == true) {
+            $product_id = $id;
+
+            $user_id = Auth::user()->id;
+
+            $data = new Cart;
+
+            $data->user_id = $user_id;
+            $data->product_id = $product_id;
+
+            $data->save();
+
+            toastr()->closeButton()->timeOut(3000)->addSuccess('Product Added To Cart Successfully');
+        } else {
+            toastr()->closeButton()->timeOut(5000)->addWarning('Mohon Login Terlebih Dahulu!');
+        }
+
+        return redirect()->back();
+    }
 }
