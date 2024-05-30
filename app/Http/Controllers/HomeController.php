@@ -92,7 +92,7 @@ class HomeController extends Controller
         if (Auth::user()) {
             $user_id = Auth::user()->id;
             $count = Cart::where('user_id', $user_id)->count();
-            $carts = Cart::where('user_id', $user_id)->with('product')->get();
+            $carts = Cart::where('user_id', $user_id)->with('product')->orderBy('id', 'desc')->get();
             foreach ($carts as $cart) {
                 $price = $cart->product->price * 1000;
                 $total += $price;
