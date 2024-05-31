@@ -10,11 +10,61 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    @include('home.include.navbar')
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="/">
+                <img class="logo" src="{{ URL::asset('/logo/logosellie.png') }}" alt="Sellie Coffee Logo">
+            </a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Sellie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" href="Menu">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Produk">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{{ url('/profile') }}">Your Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-    <section class="text-center mb-4">
+            <div class="col-md-3 text-end" id="navbar-btn">
+                @guest
+                    <a href="{{ url('login') }}" class="login-button">Login</a>
+                    <a href="{{ url('register') }}" class="register-button">Register</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                @else
+                    @if (auth()->user()->roles === 'ADMIN')
+                        <a href="{{ url('view_product') }}" class="admin-button">Admin</a>
+                    @endif
+                    <form class="btn" action="{{ url('logout') }}" method="POST">
+                        @csrf
+                        <input class="logout-button" type="submit" value="Logout">
+                    </form>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                @endguest
+            </div>
+        </div>
+    </nav>
+
+    <section style="margin-top: 150px !important;" class="text-center mb-4">
         <h1 class="text-dark fw-semibold" style=" font-family: 'DM sans', sans-serif !important;">Our<span
                 style="color: #dfad6f !important; font-family: 'DM sans', sans-serif !important;"
                 class="ms-2 mb-2">Menu</span></h1>
@@ -42,7 +92,6 @@
                                     <p class="card-text">{{ $product->description }}</p>
                                     <h3 class="card-text">Rp{{ $product->price }}</h3>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        {{--TODO Tambahkan tombol atau aksi lainnya di sini jika diperlukan --}}
                                     </div>
                                 </div>
                             </div>

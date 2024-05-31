@@ -9,17 +9,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #E8C872;
+            border-radius: 20px
         }
 
         h1 {
-            color: white;
+            color: black;
         }
 
         label{
             display: inline-block;
             width: 200px;
             font-size: 18px !important;
-            color: white !important;
+            color: black !important;
         }
 
         input[type='text']{

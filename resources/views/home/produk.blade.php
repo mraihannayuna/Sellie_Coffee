@@ -10,48 +10,65 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    <div class="container-fluid" style="background-color: #A27B5C !important;">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-4">
-            <div class="col-md-3 mb-2 mb-md-0">
-                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                    <img style="height: 65px; width: auto;" src="{{ URL::asset('/assets/sc.svg') }}" alt="failed to load">
-                </a>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="/">
+                <img class="logo" src="{{ URL::asset('/logo/logosellie.png') }}" alt="Sellie Coffee Logo">
+            </a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Sellie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="Menu">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" href="Produk">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{{ url('/profile') }}">Your Profile</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/" class="nav-button nav-link px-2 text-light">Home</a></li>
-                <li><a href="Menu" class="nav-button nav-link px-2 text-light">Menu</a></li>
-                <li><a href="Produk" class="nav-button nav-link px-2 text-light">Product</a></li>
-                <li><a href="Location" class="nav-button nav-link px-2 text-light">Location</a></li>
-                <li><a href="Contact" class="nav-button nav-link px-2 text-light">Contact</a></li>
-            </ul>
-
-            <div class="col-md-3 text-end">
-
+            <div class="col-md-3 text-end" id="navbar-btn">
                 @guest
-                    <a href="{{ url('login') }}" class="btn btn-outline-light me-2">Login</a>
-                    <a href="{{ url('register') }}" class="btn btn-outline-light">Register</a>
+                    <a href="{{ url('login') }}" class="login-button">Login</a>
+                    <a href="{{ url('register') }}" class="register-button">Register</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 @else
-                    <a class="btn btn-primary" href="{{url('mycart')}}">
-                        Carts
-                        [<span class="text-white fw-bold">{{$count}}</span>]
-                    </a>
                     @if (auth()->user()->roles === 'ADMIN')
-                        <a href="{{ url('view_product') }}" class="btn btn-outline-light">admin</a>
+                        <a href="{{ url('view_product') }}" class="admin-button">Admin</a>
                     @endif
                     <form class="btn" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <input class="btn btn-outline-light" type="submit" value="Logout">
+                        <input class="logout-button" type="submit" value="Logout">
                     </form>
+                    <a href="mycart" class="cart-button"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <span class='badge badge-warning' id='lblCartCount'> {{ $count }} </span>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 @endguest
+            </div>
+        </div>
+    </nav>
 
-        </header>
-    </div>
-
-
-    <section class="text-center mb-4">
+    <section style="margin-top: 150px !important;" class="text-center mb-4">
         <h1 class="text-dark fw-semibold" style=" font-family: 'DM sans', sans-serif !important;">Our<span
                 style="color: #dfad6f !important; font-family: 'DM sans', sans-serif !important;"
                 class="ms-2 mb-2">Products</span></h1>
@@ -74,8 +91,9 @@
                                 <h2 class="card-title">{{ $product->title }}</h2>
                                 <p class="card-text">{{ $product->description }}</p>
                                 <h3 class="card-text">Rp{{ $product->price }}</h3>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <a class="btn btn-primary" href="{{url('add_cart',$product->id)}}">Add To Cart</a>
+                                <div class="d-flex justify-content-end">
+                                    <a class="btn btn-primary" href="{{ url('add_cart', $product->id) }}">Add To
+                                        Cart</a>
                                 </div>
                             </div>
                         </div>

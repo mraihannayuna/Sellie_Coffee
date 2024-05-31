@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     @include('admin.include.css')
 
     <style type="text/css">
@@ -20,23 +21,23 @@
     .table_design {
         text-align: center;
         margin: auto;
-        border: 2px solid skyblue;
+        border: 2px solid #E8C872;
         margin-top: 50px;
         width: 1000px;
     }
 
     td {
-        color: white;
+        color: black;
         padding: 10px;
-        border: 1px solid skyblue;
+        border: 1px solid #E8C872;
     }
 
     th {
-        background-color: skyblue;
+        background-color: #E8C872;
         padding: 50px;
         font-size: 20px;;
         font-weight: bold;
-        color: white;
+        color: black;
     }
 
     </style>
@@ -74,8 +75,8 @@
                 <tr>
                      {{--? Table Header --}}
                     <th>Category Name</th>
-                    <th style="color: yellow;">Edit</th>
-                    <th style="color: red;">Delete</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
 
                 @foreach($data as $data)

@@ -14,6 +14,7 @@ export default {
             colors: {
                 selliedark: "#A27B5C",
                 sellie: "#E8C872",
+                white: "#ffffff",
             },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],

@@ -11,8 +11,6 @@ use App\Http\Controllers\PaymentController;
 Route::get('/',[HomeController::class,'home']);
 Route::get('/Menu',[HomeController::class,'menu'])->name('Menu');
 Route::get('/Produk',[HomeController::class,'produk'])->name('Produk');
-Route::get('/Location',[HomeController::class,'location'])->name('Location');
-Route::get('/Contact',[HomeController::class,'contact'])->name('Contact');
 Route::get('add_cart/{id}',[HomeController::class,'add_cart']);
 Route::get('mycart',[HomeController::class,'mycart'])->middleware(['auth', 'verified']);
 Route::get('removeFromCart/{id}', [HomeController::class, 'removeFromCart'])->middleware(['auth', 'verified'])->name('removeFromCart');

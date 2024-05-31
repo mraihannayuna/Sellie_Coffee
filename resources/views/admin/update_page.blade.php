@@ -17,7 +17,7 @@
             padding: 20px
         }
 
-        inpu[type='text']{
+        input[type='text']{
             width: 300px;
         }
 
@@ -64,21 +64,14 @@
                     </div>
                     <div>
                         <label>Category</label>
-
-                        <select name="category">
-
-                            <option value="{{$data->category}}">
-                                {{$data->category}}
+                        <select name="category_id">
+                            <option value="{{ $data->category->id }}">
+                                {{ $data->category->category_name }}
                             </option>
-
-                            @foreach ($category as $t)
-
-                            <option value="{{$t->category_name}}">{{$t->category_name}}</option>
-
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                             @endforeach
-
                         </select>
-
                     </div>
                     <div>
                         <label>Current Image</label>

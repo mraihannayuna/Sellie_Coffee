@@ -160,8 +160,9 @@ public function upload_coffee(Request $request)
     public function edit_product($id)
     {
         $data = Product::find($id);
-        $category = Category::all();
-        return view('admin.update_page', compact('data', 'category'));
+        $categories = Category::all();
+
+        return view('admin.update_page', compact('data', 'categories'));
     }
 
     public function update_product(Request $request, $id)

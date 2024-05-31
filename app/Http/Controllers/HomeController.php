@@ -83,7 +83,7 @@ class HomeController extends Controller
         return view('home.contact');
     }
 
-    public function mycart() //TODO PERBAIKI QUANTITY!!!
+    public function mycart()
     {
         $count = null;
         $carts = null;

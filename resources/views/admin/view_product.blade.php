@@ -3,9 +3,6 @@
   <head>
     @include('admin.include.css')
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
     <style type="text/css">
 
     .div_design {
@@ -17,32 +14,36 @@
     }
 
     th {
-        background-color: skyblue;
-        color: white;
+        background-color: #E8C872;
         font-size: 19px;
         font-weight: bold;
         padding: 15px;
     }
 
     .table_design {
-        border: 2px solid skyblue;
+        border: 2px solid #E8C872;
         width: 1000px;
     }
 
     td {
-        border: 1px solid skyblue;
+        border: 1px solid #E8C872;
         text-align: center;
         height: 120px;
     }
 
     tr {
         text-align: center;
+        color: black;
     }
 
     input[type='search'] {
         width: 500px;
         height: 60px;
         margin-top: 50px
+    }
+
+    h1{
+        color: white
     }
 
     </style>
@@ -57,11 +58,6 @@
     <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-
-            {{-- <form action="{{url('product_search')}}" method="GET">
-                <input type="search" name="search">
-                <input type="submit" class="btn btn-secondary" value="search">
-            </form> --}}
 
             <h1>------------------------- Products -------------------------</h1>
 

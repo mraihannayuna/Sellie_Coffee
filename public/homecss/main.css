@@ -1,0 +1,496 @@
+.page {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 2.5rem;
+}
+
+.bg-img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: brightness(0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.banner-title {
+    position: absolute;
+    color: rgb(225, 225, 225);
+    top: 300px;
+    letter-spacing: 2px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 5vw;
+    object-fit: cover;
+}
+
+.cardmg {
+    width: 20%;
+    height: 5vw;
+    object-fit: cover;
+}
+
+.custom-container {
+    max-width: 700px;
+}
+
+body {
+    background-color: #fefaf6;
+    /* min-height: 100vh; */
+    display: grid;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.section {
+    background-color: #eadbc8;
+}
+
+/* new nav new nav new navbar */
+
+.container {
+    width: 100%;
+    margin-top: 90px;
+}
+
+.navbar {
+    background-color: #fefaf6;
+    height: 80px;
+    margin: 20px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 900;
+    font-family: "Berlin Sans FB", sans-serif;
+    color: #c29154;
+}
+
+.navbar-toggler-icon {
+    color: #c29154;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: rgb(130, 130, 130);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #c29154;
+}
+
+.nav-link.active {
+    color: #c29154;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #c29154;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.hero-section {
+    background: url("/assets/selliemalboro.JPG");
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-section h1 {
+    font-family: "berlin sans fb", sans-serif;
+    color: #fefaf6;
+}
+
+.hero-section p {
+    font-size: 18px;
+    font-family: "raleway", sans-serif;
+    color: #fefaf6;
+}
+
+.hero-section:before {
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.hero-section .container {
+    height: 100vh;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-section h1 {
+    font-size: 4.5rem;
+    font-family: "Helvetica Now MT Disp", sans-serif;
+    font-weight: bolder;
+}
+
+.hero-section h2 {
+    font-size: 1.2rem;
+}
+
+/* About us Section */
+
+.about-content img {
+    width: 100%;
+}
+
+.about-content h2 {
+    font-family: "Helvetica Now MT Disp", sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 1.5;
+    margin-top: 30px;
+    color: #322c2b;
+}
+
+.about-content p {
+    font-family: "raleway", sans-serif;
+    font-weight: 400;
+    color: #322c2b;
+}
+
+.section-header h2 {
+    font-family: "berlin sans fb", sans-serif;
+    font-weight: 500;
+    color: #322c2b;
+}
+
+.section-header p {
+    font-family: "raleway", sans-serif;
+    color: #322c2b;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+/* promotion promotion */
+
+.area-1 {
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("/assets/coffeebeans.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+.area-1 h2 {
+    color: #c29154;
+    font-family: "berlin sans fb", sans-serif;
+    font-weight: 500;
+}
+
+.area-1 p {
+    color: #fefaf6;
+    font-family: "raleway", sans-serif;
+}
+
+.area-2 {
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("/assets/coffeebeans.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+.area-2 h2 {
+    color: #c29154;
+    font-family: "berlin sans fb", sans-serif;
+    font-weight: 500;
+}
+
+.area-2 p {
+    color: #fefaf6;
+    font-family: "raleway", sans-serif;
+}
+
+/* services */
+
+.service .card-body {
+    font-size: 50px;
+}
+
+.cc {
+    padding-bottom: 30px;
+}
+
+.services .card {
+    background-color: #c29154;
+}
+
+.card-body h3 {
+    font-family: "Helvetica Now MT Disp", sans-serif;
+    font-weight: 500;
+}
+
+.card-body p {
+    font-family: "raleway", sans-serif;
+}
+
+/* location */
+
+.location .col-12 {
+    padding-bottom: 30px;
+}
+
+.container {
+    width: 100%;
+    margin-top: 90px;
+}
+
+.login-button {
+    background-color: #009970;
+    color: #fefaf6;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-right: 5px;
+}
+
+.login-button:hover {
+    background-color: #ffffff;
+    color: #009970;
+}
+
+.logout-button {
+    background-color: #7b1717;
+    color: #fefaf6;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-right: 5px;
+}
+
+.logout-button:hover {
+    background-color: #ffffff;
+    color: #7b1717;
+}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -15px;
+}
+
+.register-button {
+    background-color: #ad3632;
+    color: #fefaf6;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-right: 5px;
+}
+
+.register-button:hover {
+    background-color: #fefaf6;
+    color: #ad3632;
+}
+
+.admin-button {
+    background-color: #0f7fbb;
+    color: #fefaf6;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-right: 5px;
+}
+
+.admin-button:hover {
+    background-color: #fefaf6;
+    color: #0f7fbb;
+}
+
+.cart-button {
+    background-color: #c29154;
+    color: #fefaf6;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cart-button:hover {
+    background-color: #fefaf6;
+    color: #c29154;
+}
+
+.navbar {
+    background-color: #fefaf6;
+    height: 80px;
+    margin: 20px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    border: 2px solid #cccccc;
+}
+
+.navbar-brand {
+    font-size: 14px;
+    font-weight: 900;
+    font-family: "Berlin Sans FB", sans-serif;
+    color: #c29154;
+}
+
+.navbar-toggler-icon {
+    color: #c29154;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: rgb(130, 130, 130);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #322c2b;
+}
+
+.nav-link.active {
+    color: #322c2b;
+}
+
+.logo {
+    height: 50px;
+}
+
+#navbar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 230px;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #c29154;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+
+    .navbar-brand {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .logo {
+        height: 30px;
+    }
+
+    .login-button {
+        padding: 10px 10px;
+    }
+
+    .logout-button {
+        padding: 10px 10px;
+    }
+
+    .admin-button {
+        padding: 10px 10px;
+    }
+    .register-button {
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    #navbar-btn{
+        transform: scale(0.8);
+    }
+}

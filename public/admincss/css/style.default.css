@@ -9,7 +9,7 @@ Dark Admin Bootstrap Template by Bootstrapious.com
  */
 /*
 * ==========================================================
-*     GENERAL STYLING 
+*     GENERAL STYLING
 * ==========================================================
 */
 body {
@@ -223,11 +223,9 @@ pre {
 
 .page-content {
   position: relative;
-  background: #22252a;
-  min-height: 100vh;
+  background: white;
   width: calc(100% - 280px);
   padding: 0;
-  padding-bottom: 70px;
 }
 
 .page-content.active {
@@ -236,9 +234,9 @@ pre {
 
 .page-header {
   padding: 20px 15px;
-  background: #2d3035;
+  background: white;
   color: #8a8d93;
-  margin-bottom: 30px;
+  min-height: 100vh;
 }
 
 .footer {
@@ -407,7 +405,6 @@ nav.navbar .sidebar-toggle {
   height: 36px;
   line-height: 29px;
   text-align: center;
-  border-radius: 50%;
   background: #282b2f;
   color: #8a8d93;
   font-size: 1.1rem;
@@ -715,7 +712,7 @@ nav.navbar .dropdown .dropdown-menu.active {
 */
 nav#sidebar {
   width: 280px;
-  background: #2d3035;
+  background: #A27B5C;
   color: #6a6c70;
   border-right: 1px solid #34373d;
   /* shrinked navbar */
@@ -786,7 +783,6 @@ nav#sidebar .avatar {
   margin-right: 15px;
   background: none;
   padding: 4px;
-  border: 3px solid #282b2f;
 }
 
 nav#sidebar ul {
@@ -1677,7 +1673,7 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
 
 /*
 * ==========================================================
-*     FORMS 
+*     FORMS
 * ==========================================================
 */
 .form-control {
@@ -2087,8 +2083,8 @@ STYLE SWITCHER FOR DEMO
   z-index: 2000;
 }
 
-/* ========================================= 
-   THEMING OF BOOTSTRAP COMPONENTS           
+/* =========================================
+   THEMING OF BOOTSTRAP COMPONENTS
    ========================================= */
 /*
  * 1. NAVBAR
@@ -2814,7 +2810,7 @@ STYLE SWITCHER FOR DEMO
 }
 
 /*
- * 3. TYPE  
+ * 3. TYPE
  */
 body {
   font-family: "Muli", sans-serif;
