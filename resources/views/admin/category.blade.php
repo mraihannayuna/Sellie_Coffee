@@ -40,6 +40,11 @@
         color: black;
     }
 
+    h1{
+        color: black;
+        transform: opacity(1);
+    }
+
     </style>
 
   </head>
@@ -53,7 +58,7 @@
         <div class="page-header">
           <div class="container-fluid">
 
-            <h1 style="color: white;">Category</h1>
+            <h1>Category</h1>
 
         <div class="div_design">
 

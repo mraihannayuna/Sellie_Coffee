@@ -66,7 +66,7 @@
 
             </form>
 
-        </div
+        </div>
 
         <!-- JavaScript files-->
 

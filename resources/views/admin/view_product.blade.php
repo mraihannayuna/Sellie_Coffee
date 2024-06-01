@@ -43,7 +43,7 @@
     }
 
     h1{
-        color: white
+        color: black;
     }
 
     </style>

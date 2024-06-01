@@ -26,6 +26,10 @@
             height: 100px;
         }
 
+        h2{
+            color: black;
+        }
+
     </style>
 
   </head>
